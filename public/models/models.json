@@ -1,0 +1,80 @@
+[
+  {
+    "id": "shoe-1",
+    "name": "shoe-1",
+    "path": "/models/shoe-1.glb",
+    "displayName": "Classic Runner",
+    "description": "A premium running shoe with advanced cushioning technology and breathable mesh upper. Perfect for daily runs and workouts.",
+    "price": "$129.99",
+    "category": "Running",
+    "colors": ["Black", "White", "Blue", "Red"],
+    "thumbnail": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "ML-9_OS-1",
+    "name": "ML-9_OS-1",
+    "path": "/models/ML-9_OS-1.glb",
+    "displayName": "ML-9 OS-1 Premium",
+    "description": "High-performance athletic shoe with cutting-edge design. Features responsive sole and premium materials for maximum comfort.",
+    "price": "$159.99",
+    "category": "Athletic",
+    "colors": ["Black", "Gray", "Navy"],
+    "thumbnail": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "cap",
+    "name": "Cap",
+    "path": "/models/Cap.gltf",
+    "displayName": "Premium Cap",
+    "description": "A stylish and customizable cap with premium materials. Perfect for casual wear and outdoor activities.",
+    "price": "$39.99",
+    "category": "Accessories",
+    "colors": ["Black", "Navy", "Gray", "Red"],
+    "thumbnail": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "ML-22_OS-1",
+    "name": "ML-22_OS-1",
+    "path": "/models/ML-22_OS-1.glb",
+    "displayName": "ML-22 OS-1 Premium",
+    "description": "High-performance athletic shoe with cutting-edge design. Features responsive sole and premium materials for maximum comfort.",
+    "price": "$169.99",
+    "category": "Athletic",
+    "colors": ["Black", "White", "Gray"],
+    "thumbnail": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "nike-air-jordan",
+    "name": "Nike Air Jordan",
+    "path": "/models/nike_air_jordan.glb",
+    "displayName": "Nike Air Jordan",
+    "description": "Iconic basketball sneaker with legendary design. Classic style meets modern comfort and performance.",
+    "price": "$199.99",
+    "category": "Basketball",
+    "colors": ["Black", "White", "Red", "Blue"],
+    "thumbnail": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "military-hat",
+    "name": "military_hat",
+    "path": "/models/military_hat.glb",
+    "displayName": "Military Hat",
+    "description": "A rugged and durable military-style hat with classic design. Perfect for outdoor adventures and casual wear.",
+    "price": "$49.99",
+    "category": "Accessories",
+    "colors": ["Olive", "Black", "Brown", "Gray"],
+    "thumbnail": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=400&fit=crop"
+  },
+  {
+    "id": "vans-skate-old-skool",
+    "name": "shoes_mockup_asset_-_vans_skate_old_skool_shoes",
+    "path": "/models/shoes_mockup_asset_-_vans_skate_old_skool_shoes.glb",
+    "displayName": "Vans Old Skool",
+    "description": "The classic Vans Old Skool skate shoe. Timeless design with iconic side stripe. Perfect for skating and street style.",
+    "price": "$79.99",
+    "category": "Skateboarding",
+    "colors": ["Black", "White", "Navy", "Red"],
+    "thumbnail": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop"
+  }
+]
+

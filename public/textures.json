@@ -1,0 +1,252 @@
+[
+  {
+    "id": "m-1",
+    "name": "Material M-1",
+    "folder": "/Textures/M-1/",
+    "diffuse": "/Textures/M-1/M-1.jpg",
+    "normal": "/Textures/M-1/M-1normal.jpg",
+    "roughness": "/Textures/M-1/M-1roughness ma.png"
+  },
+  {
+    "id": "m-2",
+    "name": "Material M-2",
+    "folder": "/Textures/M-2/",
+    "diffuse": "/Textures/M-2/M-2.jpg",
+    "normal": "/Textures/M-2/M-2normal.png",
+    "roughness": "/Textures/M-2/M-2roughness map.png"
+  },
+  {
+    "id": "m-3",
+    "name": "Material M-3",
+    "folder": "/Textures/M-3/",
+    "diffuse": "/Textures/M-3/M-3.jpg",
+    "normal": "/Textures/M-3/M-3normal.jpg",
+    "roughness": "/Textures/M-3/M-3roughness map.png"
+  },
+  {
+    "id": "m-4",
+    "name": "Material M-4",
+    "folder": "/Textures/M-4/",
+    "diffuse": "/Textures/M-4/M-4.jpg",
+    "normal": "/Textures/M-4/M-4normal.jpg",
+    "roughness": "/Textures/M-4/M-4roughness map.png"
+  },
+  {
+    "id": "m-5",
+    "name": "Material M-5",
+    "folder": "/Textures/M-5/",
+    "diffuse": "/Textures/M-5/M-5.jpg",
+    "normal": "/Textures/M-5/M-5normal map.png",
+    "roughness": "/Textures/M-5/M-5roughness map.png"
+  },
+  {
+    "id": "m-6",
+    "name": "Material M-6",
+    "folder": "/Textures/M-6/",
+    "diffuse": "/Textures/M-6/M-6.jpg",
+    "normal": "/Textures/M-6/M-6normal.png",
+    "roughness": "/Textures/M-6/M-6roughness.png"
+  },
+  {
+    "id": "m-7",
+    "name": "Material M-7",
+    "folder": "/Textures/M-7/",
+    "diffuse": "/Textures/M-7/M-7.jpg",
+    "normal": "/Textures/M-7/M-7normal.png",
+    "roughness": "/Textures/M-7/M-7roughness.png"
+  },
+  {
+    "id": "m-8",
+    "name": "Material M-8",
+    "folder": "/Textures/M-8/",
+    "diffuse": "/Textures/M-8/M-8.jpg",
+    "normal": "/Textures/M-8/M-8normal.png",
+    "roughness": "/Textures/M-8/M-8roughness map.png"
+  },
+  {
+    "id": "m-9",
+    "name": "Material M-9",
+    "folder": "/Textures/M-9/",
+    "diffuse": "/Textures/M-9/M-9.jpg",
+    "normal": "/Textures/M-9/M-9normal.png",
+    "roughness": "/Textures/M-9/M-9roughness map.png"
+  },
+  {
+    "id": "m-10",
+    "name": "Material M-10",
+    "folder": "/Textures/M-10/",
+    "diffuse": "/Textures/M-10/m-10.jpg",
+    "normal": "/Textures/M-10/M-10normal.png",
+    "roughness": "/Textures/M-10/m-10roughness map.png"
+  },
+  {
+    "id": "m-11",
+    "name": "Material M-11",
+    "folder": "/Textures/M-11/",
+    "diffuse": "/Textures/M-11/M-11.png",
+    "normal": "/Textures/M-11/M-11normalblur.png",
+    "roughness": "/Textures/M-11/M-11roughness.png"
+  },
+  {
+    "id": "m-12",
+    "name": "Material M-12",
+    "folder": "/Textures/M-12/",
+    "diffuse": "/Textures/M-12/M-12.png",
+    "normal": "/Textures/M-12/M-12 normal map.png",
+    "roughness": "/Textures/M-12/M-12 roughness map.png"
+  },
+  {
+    "id": "m-13",
+    "name": "Material M-13",
+    "folder": "/Textures/M-13/",
+    "diffuse": "/Textures/M-13/m-13.png",
+    "normal": "/Textures/M-13/normal map.png",
+    "roughness": "/Textures/M-13/roughness map.png"
+  },
+  {
+    "id": "m-14",
+    "name": "Material M-14",
+    "folder": "/Textures/M-14/",
+    "diffuse": "/Textures/M-14/M-14.png",
+    "normal": "/Textures/M-14/m-14 normal map.png",
+    "roughness": "/Textures/M-14/roughness.png"
+  },
+  {
+    "id": "m-15",
+    "name": "Material M-15",
+    "folder": "/Textures/M-15/",
+    "diffuse": "/Textures/M-15/m-15.png",
+    "normal": "/Textures/M-15/m-15 normal map_.png",
+    "roughness": "/Textures/M-15/m-15 roughness.png"
+  },
+  {
+    "id": "m-16",
+    "name": "Material M-16",
+    "folder": "/Textures/M-16/",
+    "diffuse": "/Textures/M-16/m-16.png",
+    "normal": "/Textures/M-16/m-16 normal map.png",
+    "roughness": "/Textures/M-16/roughness map.png"
+  },
+  {
+    "id": "m-17",
+    "name": "Material M-17",
+    "folder": "/Textures/M-17/",
+    "diffuse": "/Textures/M-17/M-17.png",
+    "normal": "/Textures/M-17/1 (12) Normal map.png",
+    "roughness": "/Textures/M-17/1 (12) roughness map.png"
+  },
+  {
+    "id": "m-18",
+    "name": "Material M-18",
+    "folder": "/Textures/M-18/",
+    "diffuse": "/Textures/M-18/M-18.png",
+    "normal": "/Textures/M-18/1 (14) normal.png",
+    "roughness": "/Textures/M-18/1 (14) roughness.png"
+  },
+  {
+    "id": "m-19",
+    "name": "Material M-19",
+    "folder": "/Textures/M-19/",
+    "diffuse": "/Textures/M-19/M-19.png",
+    "normal": "/Textures/M-19/M-19normal map.png",
+    "roughness": "/Textures/M-19/M-19roughness map.png"
+  },
+  {
+    "id": "m-20",
+    "name": "Material M-20",
+    "folder": "/Textures/M-20/",
+    "diffuse": "/Textures/M-20/M-20.png",
+    "normal": "/Textures/M-20/M-20normal.png",
+    "roughness": "/Textures/M-20/M-20roughness.png"
+  },
+  {
+    "id": "m-21",
+    "name": "Material M-21",
+    "folder": "/Textures/M-21/",
+    "diffuse": "/Textures/M-21/M-21 Seamless.png",
+    "normal": "/Textures/M-21/M-21 NormalMap.png",
+    "roughness": "/Textures/M-21/M-21 roughness map.png"
+  },
+  {
+    "id": "m-22",
+    "name": "Material M-22",
+    "folder": "/Textures/M-22/",
+    "diffuse": "/Textures/M-22/Copy of M-22.png",
+    "normal": "/Textures/M-22/Copy of M-22normal.png",
+    "roughness": "/Textures/M-22/Copy of M-22roughness.png"
+  },
+  {
+    "id": "m-23",
+    "name": "Material M-23",
+    "folder": "/Textures/M-23/",
+    "diffuse": "/Textures/M-23/M-23.png",
+    "normal": "/Textures/M-23/M-23normal.png",
+    "roughness": "/Textures/M-23/M-23roughness.png"
+  },
+  {
+    "id": "m-24",
+    "name": "Material M-24",
+    "folder": "/Textures/M-24/",
+    "diffuse": "/Textures/M-24/M-24.png",
+    "normal": "/Textures/M-24/M-24normal.png",
+    "roughness": "/Textures/M-24/M-24roughness.png"
+  },
+  {
+    "id": "m-25",
+    "name": "Material M-25",
+    "folder": "/Textures/M-25/",
+    "diffuse": "/Textures/M-25/Copy of M-25.png",
+    "normal": "/Textures/M-25/Copy of M-25normal map.png",
+    "roughness": "/Textures/M-25/Copy of M-25roughness map.png",
+    "ao": "/Textures/M-25/M-25 AO.png",
+    "height": "/Textures/M-25/M-25 height map.png"
+  },
+  {
+    "id": "m-26",
+    "name": "Material M-26",
+    "folder": "/Textures/M-26/",
+    "diffuse": "/Textures/M-26/M-26 seamless.png",
+    "normal": "/Textures/M-26/M-26 NormalMap (1).png",
+    "roughness": "/Textures/M-26/M-26 Roughness.png"
+  },
+  {
+    "id": "leather-1",
+    "name": "Leather Weave",
+    "folder": "/Textures/Leather-1/",
+    "diffuse": "/Textures/Leather-1/Leather_Weave_002_basecolor.jpg",
+    "normal": "/Textures/Leather-1/Leather_Weave_002_normal.jpg",
+    "roughness": "/Textures/Leather-1/Leather_Weave_002_roughness.jpg",
+    "ao": "/Textures/Leather-1/Leather_Weave_002_ambientOcclusion.jpg",
+    "height": "/Textures/Leather-1/Leather_Weave_002_height.png"
+  },
+  {
+    "id": "calf-leather",
+    "name": "Calf Leather",
+    "folder": "/Textures/Calf Leather/",
+    "diffuse": "/Textures/Calf Leather/fabrics_0067_color_4k.jpg",
+    "normal": "/Textures/Calf Leather/fabrics_0067_normal_opengl_4k.png",
+    "roughness": "/Textures/Calf Leather/fabrics_0067_roughness_4k.jpg",
+    "ao": "/Textures/Calf Leather/fabrics_0067_ao_4k.jpg",
+    "height": "/Textures/Calf Leather/fabrics_0067_height_4k.png"
+  },
+  {
+    "id": "crocodile-leather",
+    "name": "Crocodile Leather",
+    "folder": "/Textures/Crocodile Leather/",
+    "diffuse": "/Textures/Crocodile Leather/fabric_0013_color_1k.jpg",
+    "normal": "/Textures/Crocodile Leather/fabric_0013_normal_opengl_1k.png",
+    "roughness": "/Textures/Crocodile Leather/fabric_0013_roughness_1k.jpg",
+    "ao": "/Textures/Crocodile Leather/fabric_0013_ao_1k.jpg",
+    "height": "/Textures/Crocodile Leather/fabric_0013_height_1k.png"
+  },
+  {
+    "id": "moorland-grain",
+    "name": "Moorland Grain",
+    "folder": "/Textures/moorland grain/",
+    "diffuse": "/Textures/moorland grain/2K-Leather_23_Base Color (2).jpg",
+    "normal": "/Textures/moorland grain/2K-Leather_23_Normal (2).jpg",
+    "roughness": "/Textures/moorland grain/2K-Leather_23_Roughness.jpg",
+    "height": "/Textures/moorland grain/2K-Leather_23_Height.jpg"
+  }
+]
+
