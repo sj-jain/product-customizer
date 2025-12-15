@@ -81,7 +81,7 @@ function LightingPanel() {
   };
 
   return (
-    <div className="absolute top-4 right-4 z-40">
+    <div className="absolute top-4 right-4 z-40" style={{ top: '16px' }}>
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

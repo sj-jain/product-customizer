@@ -100,7 +100,7 @@ function EnvironmentPanel() {
   };
 
   return (
-    <div className="absolute top-20 right-4 z-40">
+    <div className="absolute right-4 z-40" style={{ top: '80px' }}>
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

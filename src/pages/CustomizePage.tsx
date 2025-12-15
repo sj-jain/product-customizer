@@ -34,13 +34,13 @@ function CustomizePage() {
       className="relative w-full h-screen customize-page"
       style={{ backgroundColor: environmentConfig.backgroundColor }}
     >
-      {/* Back Button */}
+      {/* Back Button - Professional icon-only button, positioned to avoid overlap with Toolbar */}
       <button
         onClick={() => navigate('/')}
-        className="absolute top-4 left-4 z-50 flex items-center gap-2 px-4 py-2 bg-gray-800/90 hover:bg-gray-700 text-white rounded-lg transition-colors backdrop-blur-sm"
+        className="fixed top-4 left-4 z-50 flex items-center justify-center w-10 h-10 bg-white/95 hover:bg-white text-gray-700 hover:text-gray-900 rounded-lg shadow-lg transition-all backdrop-blur-sm border border-gray-200 hover:border-gray-300 hover:shadow-xl group"
+        title="Back to Home"
       >
-        <ArrowLeft size={20} />
-        <span>Back to Home</span>
+        <ArrowLeft size={20} className="group-hover:-translate-x-0.5 transition-transform" />
       </button>
 
       {/* 3D Canvas */}

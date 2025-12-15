@@ -18,7 +18,7 @@ function Toolbar() {
   };
 
   return (
-    <div className="absolute top-4 left-4 flex gap-2 z-40">
+    <div className="absolute top-4 left-16 flex gap-2 z-40">
       <button
         onClick={handleReset}
         className="px-4 py-2 bg-white rounded-lg shadow-lg hover:bg-gray-100 transition-colors flex items-center gap-2"
