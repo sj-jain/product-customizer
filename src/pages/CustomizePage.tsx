@@ -14,6 +14,9 @@ import Toolbar from '../components/ui/Toolbar';
 import MeshInfoPanel from '../components/ui/MeshInfoPanel';
 import LightingPanel from '../components/ui/LightingPanel';
 import EnvironmentPanel from '../components/ui/EnvironmentPanel';
+import AIChat from '../components/ai/AIChat';
+import CaptureControls from '../components/capture/CaptureControls';
+import MeshDropdown from '../components/ui/MeshDropdown';
 import { useAppStore } from '../store/useAppStore';
 
 function CustomizePage() {
@@ -121,6 +124,9 @@ function CustomizePage() {
       <EnvironmentPanel />
       <CustomizationPanel />
       <MeshInfoPanel />
+      <MeshDropdown />
+      <AIChat />
+      <CaptureControls />
     </div>
   );
 }
