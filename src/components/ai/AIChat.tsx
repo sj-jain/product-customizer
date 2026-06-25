@@ -379,49 +379,112 @@ function AIChat({ onApply }: AIChatProps) {
   };
 
   const handleApplyChanges = async (mappings: AIColorMapping[], prompt: string) => {
-    if (!gltfModel) return;
+    if (!gltfModel) {
+      console.warn('❌ handleApplyChanges: gltfModel is null');
+      return;
+    }
 
     const discovery = getMeshDiscovery();
-    if (!discovery) return;
+    if (!discovery) {
+      console.warn('❌ handleApplyChanges: discovery is null');
+      return;
+    }
+
+    console.log('🎨 handleApplyChanges called:', {
+      mappingsCount: mappings.length,
+      mappings: mappings,
+      prompt: prompt,
+      meshInfoCount: meshInfo.length,
+    });
 
     const useTextures = hasTextureKeywords(prompt);
-    const useColors = hasColorKeywords(prompt) || !useTextures;
+    // Always allow colors to be applied - textures are optional
+    const useColors = true; // Always apply colors, even if textures are mentioned
+    
+    console.log('🎨 Application settings:', {
+      useTextures,
+      useColors,
+      availableTexturesCount: availableTextures.length,
+      mappingsCount: mappings.length,
+    });
 
     // If texture keywords present, select appropriate textures
     let selectedTextures: Map<string, TextureSet> = new Map();
     if (useTextures && availableTextures.length > 0) {
-      // Use texture names from AI response if provided, otherwise select based on theme
+      // First, check if there's a common texture name across all mappings
+      const commonTextureName = mappings.length > 0 && mappings[0].textureName 
+        ? mappings[0].textureName 
+        : null;
+      
+      // Use texture names from AI response if provided
       mappings.forEach((mapping, index) => {
         if (mapping.textureName) {
-          // Find texture by name from AI response
-          const texture = availableTextures.find(t => 
+          // Try exact match first
+          let texture = availableTextures.find(t => 
             t.name.toLowerCase() === mapping.textureName!.toLowerCase()
           );
+          
+          // If not found, try partial match (e.g., "crocodile" matches "crocodile leather")
+          if (!texture) {
+            const textureNameLower = mapping.textureName.toLowerCase();
+            texture = availableTextures.find(t => {
+              const tNameLower = t.name.toLowerCase();
+              return tNameLower.includes(textureNameLower) || textureNameLower.includes(tNameLower);
+            });
+          }
+          
+          // If still not found, try word-based matching
+          if (!texture) {
+            const textureWords = mapping.textureName.toLowerCase().split(/[\s_-]+/);
+            texture = availableTextures.find(t => {
+              const tNameLower = t.name.toLowerCase();
+              return textureWords.some(word => word.length > 3 && tNameLower.includes(word));
+            });
+          }
+          
           if (texture) {
             selectedTextures.set(mapping.partName.toLowerCase(), texture);
+            console.log(`  📦 Found texture "${texture.name}" for part "${mapping.partName}" (matched "${mapping.textureName}")`);
           } else {
             // Fallback: use index-based selection
             const textureIndex = index % availableTextures.length;
             selectedTextures.set(mapping.partName.toLowerCase(), availableTextures[textureIndex]);
+            console.log(`  📦 Using fallback texture "${availableTextures[textureIndex].name}" for part "${mapping.partName}" (could not find "${mapping.textureName}")`);
           }
-        } else {
-          // Fallback: use index-based selection
+        } else if (useTextures && commonTextureName) {
+          // If one mapping has a texture name, use it for all parts
+          let texture = availableTextures.find(t => 
+            t.name.toLowerCase().includes(commonTextureName.toLowerCase())
+          );
+          if (texture) {
+            selectedTextures.set(mapping.partName.toLowerCase(), texture);
+          } else {
+            const textureIndex = index % availableTextures.length;
+            selectedTextures.set(mapping.partName.toLowerCase(), availableTextures[textureIndex]);
+          }
+        } else if (useTextures) {
+          // If textures are requested but not specified, use index-based selection
           const textureIndex = index % availableTextures.length;
           selectedTextures.set(mapping.partName.toLowerCase(), availableTextures[textureIndex]);
+          console.log(`  📦 Using default texture "${availableTextures[textureIndex].name}" for part "${mapping.partName}"`);
         }
       });
     }
 
     // Apply changes to meshes
+    let totalApplied = 0;
     mappings.forEach((mapping) => {
       const partName = mapping.partName.toLowerCase().trim();
       const matchingUUIDs = new Set<string>();
       const partBaseName = extractBaseName(partName);
 
+      console.log(`\n🔍 Processing mapping: "${mapping.partName}" → Color: ${mapping.color}${mapping.textureName ? `, Texture: ${mapping.textureName}` : ''}`);
+
       // Find matching meshes
       const discoveryMatches = findAllMeshesByName(discovery, partName);
       discoveryMatches.forEach(meshInfo => {
         matchingUUIDs.add(meshInfo.uuid);
+        console.log(`  ✅ Found via discovery: ${meshInfo.displayName || meshInfo.name} (${meshInfo.uuid.substring(0, 8)}...)`);
       });
 
       gltfModel.traverse((child) => {
@@ -429,6 +492,9 @@ function AIChat({ onApply }: AIChatProps) {
           const meshName = child.name || '';
           const meshBaseName = extractBaseName(meshName);
           const meshNameLower = meshName.toLowerCase();
+          const foundMeshInfo = meshInfo.find(m => m.uuid === child.uuid);
+          const meshDisplayName = foundMeshInfo?.displayName || meshName;
+          const meshDisplayNameLower = meshDisplayName.toLowerCase();
           
           const baseNameMatches = meshBaseName === partBaseName || 
                                   meshBaseName === partName ||
@@ -436,23 +502,59 @@ function AIChat({ onApply }: AIChatProps) {
           
           const directMatches = 
             meshNameLower === partName ||
+            meshDisplayNameLower === partName ||
             meshNameLower.includes(partName) ||
-            partName.includes(meshNameLower);
+            meshDisplayNameLower.includes(partName) ||
+            partName.includes(meshNameLower) ||
+            partName.includes(meshDisplayNameLower);
           
           if (baseNameMatches || directMatches) {
             matchingUUIDs.add(child.uuid);
+            console.log(`  ✅ Found via traversal: ${meshDisplayName} (${child.uuid.substring(0, 8)}...)`);
           }
         }
       });
+
+      console.log(`  📊 Total UUIDs found for "${mapping.partName}": ${matchingUUIDs.size}`);
 
       // Apply to all matching UUIDs
       matchingUUIDs.forEach((uuid) => {
         const currentCustomization = useAppStore.getState().meshCustomizations[uuid] || {};
         
+        // Handle REMOVE actions
+        if (mapping.removeTexture || mapping.removeColor) {
+          const updates: any = { ...currentCustomization };
+          
+          if (mapping.removeTexture) {
+            console.log(`  🗑️ Removing texture from UUID: ${uuid.substring(0, 8)}...`);
+            updates.texture = undefined;
+            updates.normalMap = undefined;
+            updates.roughnessMap = undefined;
+            updates.metalnessMap = undefined;
+            updates.aoMap = undefined;
+            updates.displacementMap = undefined;
+            updates.textureTint = undefined;
+          }
+          
+          if (mapping.removeColor) {
+            console.log(`  🗑️ Removing color from UUID: ${uuid.substring(0, 8)}...`);
+            updates.color = undefined;
+          }
+          
+          updateMeshCustomization(uuid, updates);
+          totalApplied++;
+          return;
+        }
+        
+        // Handle ADD/CHANGE actions
+        // Priority: If texture is specified and available, apply texture with color tint
+        // Otherwise, apply color only
         if (useTextures && selectedTextures.has(partName)) {
           // Apply texture with lighter tint
           const texture = selectedTextures.get(partName)!;
-          const lighterTint = lightenColor(mapping.color, 0.4); // 40% lighter
+          const lighterTint = mapping.color ? lightenColor(mapping.color, 0.4) : '#FFFFFF'; // 40% lighter or white
+          
+          console.log(`  🎨 ${mapping.action || 'Applying'} texture "${texture.name}" with tint ${lighterTint} to UUID: ${uuid.substring(0, 8)}...`);
           
           updateMeshCustomization(uuid, {
             ...currentCustomization,
@@ -465,17 +567,23 @@ function AIChat({ onApply }: AIChatProps) {
             textureTint: lighterTint, // Lighter tint
             color: undefined, // Clear color when texture is applied
           });
-        } else if (useColors) {
+          totalApplied++;
+        } else if (mapping.color) {
           // Apply color only
+          console.log(`  🎨 ${mapping.action || 'Applying'} color ${mapping.color} to UUID: ${uuid.substring(0, 8)}...`);
+          
           updateMeshCustomization(uuid, {
             ...currentCustomization,
             color: mapping.color,
-            texture: undefined, // Clear texture when applying color
-            textureTint: undefined,
+            // Only clear texture if explicitly changing (not adding to existing)
+            ...(mapping.action === 'change' && !useTextures ? { texture: undefined, textureTint: undefined } : {}),
           });
+          totalApplied++;
         }
       });
     });
+
+    console.log(`\n✅ Total customizations applied: ${totalApplied} out of ${mappings.length} mappings`);
 
     if (onApply) {
       onApply();
